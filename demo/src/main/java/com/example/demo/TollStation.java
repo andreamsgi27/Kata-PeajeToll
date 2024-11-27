@@ -61,13 +61,21 @@ public class TollStation {
     }
 
     // Método para imprimir todo
-    public void printSummary() {
-        System.out.println("Toll station " + name + " in " + city + ":");
+    public String printSummary() {
+        String summary = "Toll station " + name + " in " + city + ":\n";
+        
         for (Vehicle vehicle : vehicles) {
-            System.out.println("Vehicle: " + vehicle.getLicensePlate() + ", Type: " + vehicle.getClass().getSimpleName() + ", toll: $" + vehicle.getToll());
+            summary += "Vehicle: " + vehicle.getLicensePlate() +
+                       ", Type: " + vehicle.getClass().getSimpleName() +
+                       ", toll: $" + vehicle.getToll() + "\n";
         }
-        System.out.println("Total collected: $" + collectedTolls);
+        
+        summary += "Total collected: $" + collectedTolls;
+    
+        return summary;
     }
+
+
 
 
 }
